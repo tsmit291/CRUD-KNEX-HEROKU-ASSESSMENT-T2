@@ -25,7 +25,22 @@ router.get('/:id', function(req, res, next){
   });
 });
 
+router.get('/:id/edit', function(req, res, next){
+  Posts().where('id', req.params.id).first().then(function(posts){
+    res.json({'SUCCESS': posts});
+  });
+});
 
+router.post('/:id', function(req, res, next){
+  Posts().insert(req.body).then(function(posts){
+    res.redirect('/');
+  });
+});
 
+router.post('/:id/delete', function(req,res,next){
+  Posts().where('id', req.params.id).del().then(function (posts){
+    res.redirect('/');
+  });
+});
 
 module.exports = router;
