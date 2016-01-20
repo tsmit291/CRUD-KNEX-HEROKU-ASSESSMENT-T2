@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex');
 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
-  res.json({'SUCCESS': 'add your database results here'});
+  Posts().select().then(function (posts) {
+    res.json({'SUCCESS': posts });
+  })
 });
 
 module.exports = router;
