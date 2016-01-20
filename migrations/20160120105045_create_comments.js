@@ -1,5 +1,5 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('reviews', function(table){
+  return knex.schema.createTable('comments', function(table){
     table.increments();
     table.string('post_id');
     table.string('commenter');
@@ -9,6 +9,6 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('reviews', function(table){
+  return knex.schema.dropTable('comments', function(table){
   });
 };
