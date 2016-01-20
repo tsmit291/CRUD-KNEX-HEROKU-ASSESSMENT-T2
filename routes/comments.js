@@ -11,14 +11,14 @@ function Posts(){
 };
 
 router.get('/:post_id/comments', function(req, res, next){
-    Comments().where('post_id', req.params.post_id).then(function(comments){
-      res.json({'SUCCESS': comments});
+  Comments().where('post_id', req.params.post_id).then(function(comments){
+    res.json({'SUCCESS': comments});
   });
 });
 
 router.post('/:post_id/comments', function(req, res, next){
-  Comments().insert(req.body).first().then(function(comments){
-    res.redirect('/'+ req.params.post_id + '/comments/');
+  Comments().where('post_id', req.params.post_id).insert(req.body).then(function(comments){
+    res.redirect('/posts/'+ req.params.post_id + '/comments');
   });
 });
 
@@ -34,6 +34,11 @@ router.get('/:post_id/comments/:id/edit', function(req, res, next){
   });
 });
 
+router.post('/:post_id/comments/', function(req, res, next){
+  Comments().insert(req.body).first().then(function(comments){
+    res.redirect('posts/');
+  });
+});
 
 
 

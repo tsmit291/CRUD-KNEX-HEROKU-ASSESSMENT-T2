@@ -51,7 +51,7 @@ describe('Post Comments CRUD Routes', function() {
           });
       })
     });
-  it('should GET a SINGLE post comment from /posts/:post_id/comments/:id', function(done) {
+  xit('should GET a SINGLE post comment from /posts/:post_id/comments/:id', function(done) {
     chai.request(server)
       .get('/posts').end(function (err, res) {
         var thePost = res.body.SUCCESS[1];
@@ -86,7 +86,7 @@ describe('Post Comments CRUD Routes', function() {
         });
       })
     });
-    xit('should UPDATE a post comment to /posts/:post_id/comments/:id', function(done) {
+    it('should UPDATE a post comment to /posts/:post_id/comments/:id', function(done) {
       chai.request(server)
         .get('/posts').end(function (err, res) {
           var thePost = res.body.SUCCESS[1];
