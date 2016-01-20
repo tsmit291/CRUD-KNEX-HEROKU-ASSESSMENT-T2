@@ -34,9 +34,15 @@ router.get('/:post_id/comments/:id/edit', function(req, res, next){
   });
 });
 
-router.post('/:post_id/comments/', function(req, res, next){
-  Comments().insert(req.body).first().then(function(comments){
-    res.redirect('posts/');
+router.post('/:post_id/comments/:id', function(req, res, next){
+  Comments().where('id', req.params.id).then(function(comments){
+    res.redirect('/posts/'+ req.params.post_id +'/comments/');
+  });
+});
+
+router.post('/:post_id/comments/:id/delete', function(req, res, next){
+  Comments().where('id', req.params.id).del().then(function(comments){
+    res.redirect('/posts/'+ req.params.post_id +'/comments/')
   });
 });
 
