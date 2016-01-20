@@ -23,7 +23,7 @@ describe('Posts CRUD Routes', function() {
       done();
     });
   });
-  it('should POST a SINGLE post to /posts', function(done) {
+  xit('should POST a SINGLE post to /posts', function(done) {
     var thePost = {
       'author': 'J.D Salinger',
       'body': 'I like it when somebody gets ecited about something. It\'s nice.'
@@ -37,7 +37,7 @@ describe('Posts CRUD Routes', function() {
         done();
       });
     });
-  it('should GET a SINGLE post from /posts/:id', function(done) {
+  xit('should GET a SINGLE post from /posts/:id', function(done) {
     chai.request(server)
       .get('/posts')
       .end(function (err, res) {
@@ -53,7 +53,7 @@ describe('Posts CRUD Routes', function() {
       })
     });
 
-    it('should GET edit route /posts/:id/edit', function (done) {
+    xit('should GET edit route /posts/:id/edit', function (done) {
       chai.request(server)
       .get('/posts/3/edit')
       .end(function(err, res){
@@ -61,7 +61,7 @@ describe('Posts CRUD Routes', function() {
         done();
       });
     });
-    it('should UPDATE a SINGLE post to /posts/:id', function(done) {
+    xit('should UPDATE a SINGLE post to /posts/:id', function(done) {
       chai.request(server)
         .get('/posts')
         .end(function (err, res) {
@@ -76,7 +76,7 @@ describe('Posts CRUD Routes', function() {
           });
         })
     });
-    it('should DELETE a SINGLE post at /posts/:id/delete', function(done) {
+    xit('should DELETE a SINGLE post at /posts/:id/delete', function(done) {
       chai.request(server)
         .get('/posts')
         .end(function (err, res) {
